@@ -26,7 +26,7 @@ const fetchReviews = async (productId) => {
 
   const fetchPage = async () => {
     try {
-      while ((currentPage + 1) * per_page < total) {
+      while (currentPage * per_page < total) {
         const url = `${baseUrl}&from=${currentPage * per_page}`;
         const res = await fetch(url, {
           retries: 5,
