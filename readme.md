@@ -1,5 +1,7 @@
 Feel free to use this simple script to scrape Capterra reviews.
 
+[![Run on Repl.it](https://repl.it/badge/github/muratsu/capterra-reviews)](https://repl.it/github/muratsu/capterra-reviews)
+
 ### Instructions to use
 Say you want to scrape the reviews for [boomi](https://www.capterra.com/p/5520/Dell-Boomi/reviews/).
 
