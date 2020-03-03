@@ -1,6 +1,6 @@
 const fetchReviews = require('./lib');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
-const csvWriter = createCsvWriter({
+const csvWriter = createCsvWriter({asdsdasdsa
     path: `${__dirname}/results.csv`,
     header: [
         { id: "reviewer_full_name", title: 'Full Name' },
