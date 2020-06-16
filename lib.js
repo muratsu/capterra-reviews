@@ -1,4 +1,6 @@
-const fetch = require('fetch-retry');
+const originalFetch = require('node-fetch');
+const fetch = require('fetch-retry')(originalFetch);
+const ChromeAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36';
 
 // Exponential backoff
 const retryDelay = (attempt, error, response) => {
@@ -11,6 +13,7 @@ const fetchReviews = async (productId) => {
 
   try {
     const res = await fetch(baseUrl, {
+      headers: { 'User-Agent': ChromeAgent },
       retries: 5,
       retryDelay
     }).then(res => res.json());
@@ -29,6 +32,7 @@ const fetchReviews = async (productId) => {
       while (currentPage * per_page < total) {
         const url = `${baseUrl}&from=${currentPage * per_page}`;
         const res = await fetch(url, {
+          headers: { 'User-Agent': ChromeAgent },
           retries: 5,
           retryDelay
         }).then(res => res.json());
